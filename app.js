@@ -108,7 +108,7 @@ function saveState(state) {
 
 function render(state) {
   totalDaysEl.textContent = state.totalDays;
-  currentStreakEl.textContent = state.currentStreak;
+  currentStreakEl.textContent = state.currentStreak + " day";
   weekCountEl.textContent = state.weekCount;// % 7;
   const pct = ((state.weekCount) / 7) * 100;//((state.weekCount % 7) / 7) * 100;
   weekProgressFill.style.width = `${pct}%`;
@@ -126,6 +126,19 @@ function celebrate() {
     [{ transform: "scaleY(1.0)" }, { transform: "scaleY(1.08)" }, { transform: "scaleY(1.0)" }],
     { duration: 250, easing: "ease-out" }
   );
+  
+    const panda = document.getElementById('panda');
+
+	//animation: swing 1s ease-in-out infinite alternate;
+    // Start animation
+    setTimeout(() => {
+      panda.style.animation = 'swing 1s ease-in-out infinite alternate';
+    }, 1);
+    // Stop animation after 5 seconds
+    setTimeout(() => {
+      panda.style.animation = 'none';
+      panda.style.transform = 'rotateY(0deg)';
+    }, 4000);
 }
 
 // ---------- Idea generation ----------
@@ -243,3 +256,59 @@ didItBtn.addEventListener("click", () => {
     render(state);
     celebrate();
 });
+
+
+
+
+/*
+
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { Auth0Provider } from '@auth0/auth0-react';
+import App from './App';
+
+const root = createRoot(document.getElementById('root'));
+
+root.render(
+<Auth0Provider
+    domain="dailykindness.us"
+    clientId="{yourClientId}"
+    authorizationParams={{
+      redirect_uri: window.location.origin
+    }}
+  >
+    <App />
+  </Auth0Provider>,
+);
+
+
+
+
+import { useAuth0 } from "@auth0/auth0-react";
+import React from "react";
+
+const LoginButton = () => {
+  const { loginWithRedirect } = useAuth0();
+
+  return <button onClick={() => loginWithRedirect()}>Log In</button>;
+};
+
+export default LoginButton;
+
+
+
+
+import { useAuth0 } from "@auth0/auth0-react";
+import React from "react";
+
+const LogoutButton = () => {
+  const { logout } = useAuth0();
+
+  return (
+    <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+      Log Out
+    </button>
+  );
+};
+
+*/
