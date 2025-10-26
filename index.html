@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Daily Kindness</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+    <meta name="description" content="Click to receive a gentle nudge to do something kind today." />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="shell">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <h1 class="site-title">Daily Kindness</h1>
+        </div>
+      </div>
+    </header>
+
+    <main class="shell main" id="main" tabindex="-1">
+      <!-- CHALLENGE (top) -->
+	  <br /> <br /><br /><br /><br />
+      <section aria-labelledby="idea-heading" class="card idea-card">
+        <h2 id="idea-heading" class="sr-only">Today's Challenge</h2>
+
+        <div class="card-head">
+          <div class="card-title">Today’s Challenge</div>
+		  <br />
+	  </div>
+
+        <p id="idea" class="idea-text">
+          How can I help someone today?...
+        </p>
+
+        <div class="controls">
+          <button id="generateBtn" class="btn btn-primary" type="button">
+            Generate Idea
+          </button>
+        </div>
+
+        <div class="meta" id="ideaMeta" hidden>
+          <span class="tag" data-tag="time"></span>
+          <span class="tag" data-tag="cost"></span>
+          <span class="tag" data-tag="setting"></span>
+        </div>
+      </section>
+
+      <!-- STREAK (below) -->
+      <section class="card stats-card" aria-labelledby="stats-heading">
+        <h2 id="stats-heading" class="sr-only">Your Kindness Progress</h2>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-label">Kind Points</div>
+            <div class="stat-value" id="totalDays">0</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Current Streak</div>
+            <div class="stat-value" id="currentStreak">0</div>
+          </div>
+        </div>
+
+        <div class="progress-block">
+          <div class="progress-header">
+            <span class="progress-label">This Week</span>
+            <span class="progress-count"><span id="weekCount">0</span>/7</span>
+          </div>
+          <div class="progress" aria-label="Weekly progress" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0" role="progressbar" id="weekProgressBar">
+            <div class="progress-fill" id="weekProgressFill" style="width: 0%"></div>
+            <!-- decorative tick marks -->
+            <div class="progress-ticks" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="didItBtn" class="btn btn-success" type="button">
+            I did it!
+          </button>
+        </div>
+
+        <p id="feedback" class="feedback" aria-live="polite" style="display:none;"></p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell">
+        <p>Spread kindness • <a href="#" rel="nofollow">Why it matters</a></p>
+      </div>
+    </footer>
+  </body>
+</html>
