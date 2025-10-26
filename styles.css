@@ -273,3 +273,15 @@ body {
     transition: none;
   }
 }
+
+
+  #panda {
+    animation: swing 1s ease-in-out infinite alternate;
+	animation: none;
+    transform-origin: center center;
+  }
+
+  @keyframes swing {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(180deg); }
+  }
